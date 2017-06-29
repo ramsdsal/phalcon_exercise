@@ -23,13 +23,7 @@ class BaseModel extends Model
 		$this->updated_at = date("Y-m-d H:i:s");
 	}
 
-	public function beforeValidationOnCreate()
-	{
-		if($this->email == "test@test.com")
-		{
-			die("This email is too common!");
-		}
-	}
+	
 }
 
 

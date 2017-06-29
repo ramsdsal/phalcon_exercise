@@ -49,7 +49,7 @@ class UserController extends Controller
 
 	public function deleteAction()
 	{
-		$user = User::findFirstById(8);		
+		$user = User::findFirstById(1);		
 		if(!$user)
 		{
 			echo "User does not exist!";
@@ -60,6 +60,30 @@ class UserController extends Controller
 		if(!$result)
 		{
 			print_r($user->getMessages());
+		}
+	}
+
+	public function createAssocAction()
+	{
+		$user = User::findFirstById(1);
+		$project = new Project();
+		$project->user = $user;
+		$project->title = "Moonwalker";
+		$result = $project->create();
+		if(!$result)
+		{
+			print_r($project->getMessages());
+		}
+	}
+
+	public function deleteAssocAction()
+	{
+		$project = Project::findFirstById(1);
+		$result = $project->delete();
+
+		if(!$result)
+		{
+			print_r($project->getMessages());
 		}
 	}
 }

@@ -12,13 +12,10 @@ class Project extends BaseModel
 
 	public function initialize()
 	{
+		parent::initialize();
 		$this->belongsTo('user_id','user','id');
 	}
-
-	public function createAction()
-	{	
-		
-	}
+	
 
 } 
 ?>

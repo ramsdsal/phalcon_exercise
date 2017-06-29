@@ -47,6 +47,15 @@
  **Video 3.6 - Table Model Relationships**  
  	- Relationship (oneToMany)    
 
-     
+**Video 3.7 - Saving Related Records**    
+ 	- Create and delete a project associated with the user   
+
+ 
+
+ 	    
+
+    
+
+
 
 
