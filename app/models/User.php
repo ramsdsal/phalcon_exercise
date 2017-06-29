@@ -2,6 +2,13 @@
 
 class User extends BaseModel
 {
+	/**
+     * @Primary
+     * @Identity
+     * @Column(type="integer", nullable=false)
+     */
+    public $id;
+    
 	//Set the name of tabel that related to this Model
 	public function getSource()
 	{

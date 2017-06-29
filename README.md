@@ -53,6 +53,13 @@
 **Video 4.2 - Install APC Windows**      
 	- APC is a deprecated package for PHP5.6, i used APCu instead.      
 
+**Video 4.3 - Caching Meta Data**        
+	- APCu is instaled and give no error, but im not sure that it works.    
+
+**Video 4.4 - Using Sessions**
+	-     
+
+
 
 
  	    

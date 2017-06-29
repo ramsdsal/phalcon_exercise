@@ -6,6 +6,7 @@ use \Phalcon\Mvc\Application;
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\Mvc\View;
 use \Phalcon\Db\Adapter\Pdo\Mysql;
+use Phalcon\Mvc\Model\MetaData\Apc;
 
 try
 {
@@ -35,6 +36,20 @@ try
 		]);
 		return $db;		
 	});
+
+	//Meta-Data
+	$di['modelsMetadata'] = function () {
+    // Create a metadata manager with APC
+    $metadata = new Apc(
+        [
+            'lifetime' => 86400,
+            'prefix'   => 'metaData',
+        ]
+    );
+
+    return $metadata;
+};
+
 
 	//Deploy the application
 	$app = new Application($di);
