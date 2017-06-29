@@ -27,7 +27,11 @@
 	- Database learning-phalcon   
 	- Tabel user (id,email,password,created_at,updated_at)  
 	- Tabel project (id,user_id,title,created_at,updated_at)    
-	    
+	
+**Video 3.2 - Update Bootstrap for db**          
+	- Setup the db connection    
+
+      
 
 
 

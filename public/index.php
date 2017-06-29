@@ -1,9 +1,11 @@
 <?php 
+include('../app/config/db.php');
 use \Phalcon\Exception;
 use \Phalcon\Loader;
 use \Phalcon\Mvc\Application;
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\Mvc\View;
+use \Phalcon\Db\Adapter\Pdo\Mysql;
 
 try
 {
@@ -23,7 +25,15 @@ try
 		$view = new View();
 		return $view->setViewsDir('../app/views');		
 	});
-
+	
+	$di->set('db',function(){
+		$db = new Mysql([
+			'host' => DB_HOST,
+			'username' => DB_USERNAME,
+			'password' => DB_PASSWORD,
+			'dbname' => DB_NAME
+		]);		
+	});
 
 	//Deploy the application
 	$app = new Application($di);
