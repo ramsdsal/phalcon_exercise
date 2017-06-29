@@ -21,7 +21,7 @@ class LoginController extends Controller
 		$this->view->setVar('age',$age);
 		//$this->view->disableLevel(View::LEVEL_AFTER_TEMPLATE);
 
-	}	
+	}
 }
 
 ?>

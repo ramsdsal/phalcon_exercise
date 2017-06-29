@@ -86,6 +86,17 @@ class UserController extends Controller
 			print_r($project->getMessages());
 		}
 	}
+
+	public function loginAction()
+	{
+		
+		/*print_r($this->request->get()); //GET_REQUEST
+		print_r($this->request->getPost()); //GET_POST
+		echo $this->request->getQuery('demo','false','Pig'); //GET_GET*/
+
+		echo "POST".$this->request->hasPost('username');
+		echo "GET".$this->request->hasQuery('demo');
+	}
 }
 
 ?>
