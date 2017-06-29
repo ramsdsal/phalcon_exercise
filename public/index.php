@@ -32,7 +32,8 @@ try
 			'username' => DB_USERNAME,
 			'password' => DB_PASSWORD,
 			'dbname' => DB_NAME
-		]);		
+		]);
+		return $db;		
 	});
 
 	//Deploy the application

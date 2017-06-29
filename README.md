@@ -31,7 +31,9 @@
 **Video 3.2 - Update Bootstrap for db**          
 	- Setup the db connection    
 
-      
+**Video 3.3 - Model Setup Create Update Select**
+	- Create a Model  
+	- Create, update and select data from db           
 
 
 
