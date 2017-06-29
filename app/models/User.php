@@ -1,8 +1,6 @@
 <?php
-use \Phalcon\Mvc\Model;
-use \Phalcon\Mvc\Model\Behavior\SoftDelete;
 
-class User extends Model
+class User extends BaseModel
 {
 	//Set the name of tabel that related to this Model
 	public function getSource()
@@ -10,12 +8,6 @@ class User extends Model
 		return "user";
 	}
 
-	public function initialize()
-	{	
-		$this->addBehavior(new SoftDelete([
-			'field' => 'deleted',
-			'value' => 1
-		]));
-	}
+
 } 
 ?>

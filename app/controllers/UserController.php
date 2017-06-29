@@ -17,9 +17,8 @@ class UserController extends Controller
 	public function createAction()
 	{	
 		$user = new User();
-		$user->email = "test@test.com";
+		$user->email = "test@test11.com";
 		$user->password = "test";
-		$user->created_at = date("Y-m-d H:i:s");
 		$result = $user->create();
 
 		if(!$result)
@@ -31,7 +30,7 @@ class UserController extends Controller
 
 	public function updateAction()
 	{
-		$user = User::findFirstById(1);
+		$user = User::findFirstById(11);
 		
 		if(!$user)
 		{
@@ -39,8 +38,7 @@ class UserController extends Controller
 			die;
 		}
 
-		$user->email = "updated@asds.com";
-		$user->updated_at = date("Y-m-d H:i:s");
+		$user->email = "updated@asds.com";		
 		$result = $user->update();
 
 		if(!$result)

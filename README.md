@@ -40,4 +40,8 @@
 	- Delete a record  
 	- Softdelete behavior    
 
+**Video 3.5 - Model Events**  
+	- Events
+	- BaseModel    
+
      
