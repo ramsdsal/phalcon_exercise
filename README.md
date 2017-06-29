@@ -36,4 +36,8 @@
 	- Create, update and select data from db           
 
 
+**Video 3.4 - Model Delete Data**
+	- Delete a record  
+	- Softdelete behavior    
 
+     

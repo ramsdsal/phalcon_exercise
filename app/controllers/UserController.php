@@ -7,7 +7,9 @@ class UserController extends Controller
 	{
 		$this->view->setVars([
 			'single' => User::findFirstById(1),
-			'all' => User::find()
+			'all' => User::find([
+				'deleted is NULL'
+			])
 		]);
 
 	}
@@ -41,6 +43,22 @@ class UserController extends Controller
 		$user->updated_at = date("Y-m-d H:i:s");
 		$result = $user->update();
 
+		if(!$result)
+		{
+			print_r($user->getMessages());
+		}
+	}
+
+	public function deleteAction()
+	{
+		$user = User::findFirstById(8);		
+		if(!$user)
+		{
+			echo "User does not exist!";
+			die;
+		}
+
+		$result = $user->delete();
 		if(!$result)
 		{
 			print_r($user->getMessages());
