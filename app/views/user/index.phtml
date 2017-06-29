@@ -2,9 +2,26 @@
 <?php if(property_exists($single, 'id')):?>
 	<?=$single->id; ?>
 	<?=$single->email; ?>
+	<?php print_r($single->getProject('id!=2')->toArray()); ?>
+	<?php foreach($single->project as $p): ?>
+		<?=$p->id; ?>
+		<?=$p->title; ?>
+	<?php endforeach; ?>
+
 <?php endif; ?>
 <hr>
 <?php foreach($all as $user): ?>
 	<?=$user->id; ?>
 	<?=$user->email; ?>
 <?php endforeach; ?>
+
+<hr>
+
+<?php 
+
+	$first = $single->project->getFirst()->toArray();
+	print_r($first);
+	$first = $single->project->getLast()->toArray();
+	print_r($first);
+
+?>

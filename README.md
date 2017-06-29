@@ -44,4 +44,9 @@
 	- Events
 	- BaseModel    
 
+ **Video 3.6 - Table Model Relationships**  
+ 	- Relationship (oneToMany)    
+
      
+
+

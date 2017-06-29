@@ -10,5 +10,15 @@ class Project extends BaseModel
 		return "project";
 	}
 
+	public function initialize()
+	{
+		$this->belongsTo('user_id','user','id');
+	}
+
+	public function createAction()
+	{	
+		
+	}
+
 } 
 ?>

@@ -8,6 +8,10 @@ class User extends BaseModel
 		return "user";
 	}
 
+	public function initialize()
+	{
+		$this->hasMany('id','project','user_id');
+	}
 
 } 
 ?>
