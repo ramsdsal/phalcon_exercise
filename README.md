@@ -48,9 +48,12 @@
  	- Relationship (oneToMany)    
 
 **Video 3.7 - Saving Related Records**    
- 	- Create and delete a project associated with the user   
+ 	- Create and delete a project associated with the user  
 
- 
+**Video 4.2 - Install APC Windows**      
+	- APC is a deprecated package for PHP5.6, i used APCu instead.      
+
+
 
  	    
 
