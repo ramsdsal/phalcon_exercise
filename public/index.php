@@ -6,7 +6,8 @@ use \Phalcon\Mvc\Application;
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\Mvc\View;
 use \Phalcon\Db\Adapter\Pdo\Mysql;
-use Phalcon\Mvc\Model\MetaData\Apc;
+use \Phalcon\Mvc\Model\MetaData\Apc;
+use \Phalcon\Session\Adapter\Files;
 
 try
 {
@@ -24,7 +25,8 @@ try
 	$di->set('view',function()
 	{
 		$view = new View();
-		return $view->setViewsDir('../app/views');		
+		$view->setViewsDir('../app/views');
+		return $view;		
 	});
 	
 	$di->set('db',function(){
@@ -48,8 +50,14 @@ try
     );
 
     return $metadata;
-};
+	};
 
+	//Session
+	$di->setShared('session',function(){
+		$session = new Files();
+		$session->start();
+		return $session;
+	});
 
 	//Deploy the application
 	$app = new Application($di);

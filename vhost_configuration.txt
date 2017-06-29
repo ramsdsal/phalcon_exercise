@@ -1,0 +1,12 @@
+Ik had een probleem met de routing naar de root bestand, bijvoorbeeld [hostname]/index/function().
+Hij werkt niet. Om het te kunnen oplossen, moet u uw vhost aanpassen naar:
+
+<VirtualHost *:80>
+	ServerName phalcon
+	DocumentRoot "c:/workspace/CN/phalcon/public"
+	<Directory  "c:/workspace/CN/phalcon/public/">
+		Options All
+		AllowOverride All
+		Require local
+	</Directory>
+</VirtualHost>

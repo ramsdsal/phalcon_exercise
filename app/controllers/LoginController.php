@@ -19,7 +19,7 @@ class LoginController extends Controller
 		echo "Processing</br>";
 		$this->view->setVar('username',$username);
 		$this->view->setVar('age',$age);
-		$this->view->disableLevel(View::LEVEL_AFTER_TEMPLATE);
+		//$this->view->disableLevel(View::LEVEL_AFTER_TEMPLATE);
 
 	}	
 }

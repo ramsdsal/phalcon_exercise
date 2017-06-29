@@ -56,8 +56,11 @@
 **Video 4.3 - Caching Meta Data**        
 	- APCu is instaled and give no error, but im not sure that it works.    
 
-**Video 4.4 - Using Sessions**
-	-     
+**Video 4.4 - Using Sessions**  
+	- Create, remove, get en destroy session  
+	- Routing probleem opgelost    
+
+        
 
 
 
