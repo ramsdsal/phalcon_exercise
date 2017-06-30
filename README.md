@@ -60,7 +60,13 @@
 	- Create, remove, get en destroy session  
 	- Routing probleem opgelost    
 
-        
+**Video 4.5 - Request Environment**    
+	- Get requests    
+
+**Video 4.6 - Custom Routing**  
+	- Router dependency  
+	- Routes class    
+	         
 
 
 

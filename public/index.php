@@ -8,6 +8,7 @@ use \Phalcon\Mvc\View;
 use \Phalcon\Db\Adapter\Pdo\Mysql;
 use \Phalcon\Mvc\Model\MetaData\Apc;
 use \Phalcon\Session\Adapter\Files;
+use \Phalcon\Mvc\Router;
 
 try
 {
@@ -15,7 +16,8 @@ try
 	$loader = new Loader();
 	$loader->registerDirs([
 		'../app/controllers/',
-		'../app/models/'
+		'../app/models/',
+		'../app/config/',
 	]);
 	$loader->register();
 
@@ -27,6 +29,14 @@ try
 		$view = new View();
 		$view->setViewsDir('../app/views');
 		return $view;		
+	});
+
+	//Router
+	$di->set('router',function(){
+		
+		$router = new Router();
+		$router->mount(new Routes());
+		return $router;
 	});
 	
 	$di->set('db',function(){
