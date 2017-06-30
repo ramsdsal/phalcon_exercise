@@ -68,8 +68,13 @@
 	- Routes class    
 
 **Video 5.1 - Assets Manager And Bootstrap**  
-	-    
-	         
+	- Css and Js files included    
+
+
+**Video 5.2 - Enable Volt  
+	- Volt enabled    
+
+   	         
 
 
 

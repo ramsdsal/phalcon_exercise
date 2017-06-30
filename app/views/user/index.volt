@@ -5,18 +5,20 @@
 
 </form>
 <h1>User</h1>
-<h1>Single record</h1>
-<?php if(property_exists($single, 'id')):?>
-	<?=$single->id; ?>
-	<?=$single->email; ?>
-	<?php print_r($single->getProject('id!=2')->toArray()); ?>
-	<h3>Projects from <?= $single->email ?></h3>
-	<?php foreach($single->project as $p): ?>
-		<?=$p->id; ?>
-		<?=$p->title; ?>
-	<?php endforeach; ?>
-
-<?php endif; ?>
+<h3>Single record</h3>
+{% if single %}
+ID: {{ single.id }}&nbsp;
+EMAIL: {{ single.email }}
+{% endif %}
+<h3>Projects</h3>
+<hr>
+{% if single.id %}
+	{% for project in single.project %}		
+		ID: {{ project.id }}
+		TITLE: {{ project.title }}<br>	
+	{% endfor %}
+{% endif %}
+<hr>
 <h1>All users</h1>
 <hr>
 <?php foreach($all as $user): ?>
@@ -25,23 +27,7 @@
 <?php endforeach; ?>
 <h1>First and last Project from the first user</h1>
 <hr>
-
-<?php
-
-	$first = $single->project->getFirst()->toArray();
-	print_r($first);
-	$first = $single->project->getLast()->toArray();
-	print_r($first);
-	//phpinfo();		
-?>
-<h1>Meta-data test</h1>
-<hr>
-<?php 
-	$test = new User();
-	$metaData = $test->getModelsMetaData();
-	$attributes = $metaData->getAttributes($test);
-	print_r($attributes);
-
-	$dataTypes = $metaData->getDataTypes($test);
-	print_r($dataTypes);
-?>
+{% set first = single.project.getFirst().toArray() %}
+{% set last = single.project.getLast().toArray() %}
+First-project: {{ first['title'] }}<br>
+Last-project: {{ last['title'] }}<br>
