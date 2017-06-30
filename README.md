@@ -66,6 +66,9 @@
 **Video 4.6 - Custom Routing**  
 	- Router dependency  
 	- Routes class    
+
+**Video 5.1 - Assets Manager And Bootstrap**  
+	-    
 	         
 
 

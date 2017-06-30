@@ -1,12 +1,12 @@
 <?php
-use \Phalcon\Mvc\Controller;
 use \Phalcon\Mvc\View;
 
-class IndexController extends Controller
+class IndexController extends BaseController
 {
 	public function indexAction()
 	{
-		echo "Hello world!";
+		
+
 	}	
 
 	public function startSessionAction()

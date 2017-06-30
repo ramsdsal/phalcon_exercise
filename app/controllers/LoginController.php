@@ -1,8 +1,7 @@
 <?php
-use \Phalcon\Mvc\Controller;
 use \Phalcon\Mvc\View;
 
-class LoginController extends Controller
+class LoginController extends BaseController
 {
 	public function initialize()
 	{

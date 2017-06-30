@@ -1,7 +1,6 @@
 <?php
-use \Phalcon\Mvc\Controller;
 
-class UserController extends Controller
+class UserController extends BaseController
 {
 	public function indexAction()
 	{
