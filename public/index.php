@@ -28,6 +28,9 @@ try
 	{
 		$view = new View();
 		$view->setViewsDir('../app/views');
+		$view->registerEngines([
+			'.volt' => 'Phalcon\Mvc\View\Engine\volt'
+		]);
 		return $view;		
 	});
 
