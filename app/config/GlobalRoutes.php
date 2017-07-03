@@ -1,7 +1,7 @@
 <?php
 use \Phalcon\Mvc\Router\Group;
 
-class Routes extends Group
+class GlobalRoutes extends Group
 {
 	public function initialize()
 	{

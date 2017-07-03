@@ -18,8 +18,7 @@ try
 	$loader->registerDirs([
 		'../app/controllers/',
 		'../app/models/',
-		'../app/config/',
-		'../app/plugins'
+		'../app/config/'		
 	]);
 	$loader->register();
 
@@ -40,7 +39,7 @@ try
 	$di->set('router',function(){
 		
 		$router = new Router();
-		$router->mount(new Routes());
+		$router->mount(new GlobalRoutes());
 		return $router;
 	});
 	
@@ -81,7 +80,7 @@ try
 		$permission = new Permission();
 
 		//Listen for events from the permission class
-		$eventsManager->attach('dispatcher',$permission);
+		$eventsManager->attach('dispatch',$permission);
 
 		$dispatcher = new Dispatcher();
 		$dispatcher->setEventsManager($eventsManager);
@@ -97,6 +96,4 @@ catch(Exception $e)
 {
 	echo $e->getMessage();
 }
-
-
 ?>

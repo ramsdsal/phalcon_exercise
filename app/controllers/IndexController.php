@@ -7,8 +7,6 @@ class IndexController extends BaseController
 	public function indexAction()
 	{
 		Tag::setTitle('Home');
-		parent::initialize();
-
 	}	
 
 	public function startSessionAction()
@@ -18,8 +16,7 @@ class IndexController extends BaseController
 			'name' => 'ted',
 			'age' => 50,
 			'soOn' => 'soForth'
-		]);	
-
+		]);
 	}
 
 	public function getSessionAction()

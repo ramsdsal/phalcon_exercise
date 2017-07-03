@@ -78,8 +78,13 @@
 **Video 6.1 - Application Overhaul**      
 	- Bootstrap included     
 
-**Video 6.2 - Acl P1**
-	- Access control pt 1      
+**Video 6.2 - Acl P1**    
+	- Access control pt 1        
+
+**Video 6.3 - Acl P2**      
+	- Access control pt 2    
+
+          
 
 
 
