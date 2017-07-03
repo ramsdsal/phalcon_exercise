@@ -74,6 +74,11 @@
 **Video 5.2 - Enable Volt  
 	- Volt enabled    
 
+
+**Video 6.1 - Application Overhaul    
+	- Bootstrap included 
+
+
    	         
 
 
