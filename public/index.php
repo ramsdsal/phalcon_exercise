@@ -9,6 +9,7 @@ use \Phalcon\Db\Adapter\Pdo\Mysql;
 use \Phalcon\Mvc\Model\MetaData\Apc;
 use \Phalcon\Session\Adapter\Files;
 use \Phalcon\Mvc\Router;
+use \Phalcon\Mvc\Dispatcher;
 
 try
 {
@@ -18,6 +19,7 @@ try
 		'../app/controllers/',
 		'../app/models/',
 		'../app/config/',
+		'../app/plugins'
 	]);
 	$loader->register();
 
@@ -70,6 +72,20 @@ try
 		$session = new Files();
 		$session->start();
 		return $session;
+	});
+
+	$di->set('dispatcher',function() use ($di){
+		$eventsManager = $di->getShared('eventsManager');
+		
+		//Custom ACL class
+		$permission = new Permission();
+
+		//Listen for events from the permission class
+		$eventsManager->attach('dispatcher',$permission);
+
+		$dispatcher = new Dispatcher();
+		$dispatcher->setEventsManager($eventsManager);
+		return $dispatcher;
 	});
 
 	//Deploy the application

@@ -71,12 +71,18 @@
 	- Css and Js files included    
 
 
-**Video 5.2 - Enable Volt  
+**Video 5.2 - Enable Volt**  
 	- Volt enabled    
 
 
-**Video 6.1 - Application Overhaul    
-	- Bootstrap included 
+**Video 6.1 - Application Overhaul**      
+	- Bootstrap included     
+
+**Video 6.2 - Acl P1**
+	- Access control pt 1      
+
+
+
 
 
    	         
