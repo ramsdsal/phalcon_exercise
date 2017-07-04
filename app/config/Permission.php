@@ -1,12 +1,17 @@
 <?php
-use \Phalcon\Mvc\User\Plugin;
-use	\Phalcon\Mvc\Dispatcher;
-use \Phalcon\Acl\Adapter\Memory;
-use \Phalcon\Acl\Role;
-use \Phalcon\Events\Event;
+use	Phalcon\Mvc\Dispatcher,
+ 	Phalcon\Events\Event,
+	Phalcon\Acl;
 
-class Permission  extends Plugin
+class Permission  extends \Phalcon\Mvc\User\Plugin
 {
+	/**
+	* Constants to prevent a typo
+	*/
+	const GUEST = 'guest';
+	const USER = 'user';
+	const ADMIN = 'admin';
+
 	protected $_publicResources = [
 		'index' => '*',
 		'signin' => '*'
@@ -17,19 +22,47 @@ class Permission  extends Plugin
 	];
 	protected $_adminResources = [
 		'admin' => ['*'],
-	];
+	];		
+
+	public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher)
+	{
+		//return;
+		$role = $this->session->get('role');
+		if(!$role)
+		{
+			$role = self::GUEST;
+		}
+
+		$controller = $dispatcher->getControllerName();
+		$action = $dispatcher->getActionName();
+
+		//get the Acl Rule List
+		$acl = $this->_getAcl();
+		
+		$allowed = $acl->isAllowed($role,$controller,$action);
+		
+		if($allowed != Acl::ALLOW)
+		{
+			//do something
+			$this->flash->error("You do not have permission to access this area.");
+			$this->response->redirect('index');
+			
+			//Stop the dispatcher
+			return false;
+		}
+	}
 
 	protected function _getAcl()
 	{
 		if(!isset($this->persistent->acl))
 		{
-			$acl = new Memory();
-			$acl->setDefaultAction(Phalcon\Acl::DENY);
+			$acl = new Acl\Adapter\Memory();
+			$acl->setDefaultAction(Acl::DENY);
 
 			$roles = [
-				'guest' => new Role('guest'),
-				'user' => new Role('user'),
-				'admin' => new Role('admin'),
+				self::GUEST => new Acl\Role(self::GUEST),
+				self::USER => new Acl\Role(self::USER),
+				self::ADMIN => new Acl\Role(self::ADMIN)
 			];
 
 			foreach($roles as $role)
@@ -40,19 +73,19 @@ class Permission  extends Plugin
 			//public resources
 			foreach($this->_publicResources as $resource => $action)
 			{
-				$acl->addResource(new \Phalcon\Acl\Resource($resource),$action);
+				$acl->addResource(new Acl\Resource($resource),$action);
 			}
 
 			//user resources
 			foreach($this->_userResources as $resource => $action)
 			{
-				$acl->addResource(new Phalcon\Acl\Resource($resource),$action);
+				$acl->addResource(new Acl\Resource($resource),$action);
 			}
 
 			//admin resources
 			foreach($this->_adminResources as $resource => $action)
 			{
-				$acl->addResource(new \Phalcon\Acl\Resource($resource),$action);
+				$acl->addResource(new Acl\Resource($resource),$action);
 			}
 
 			//Allow everyone 
@@ -71,8 +104,8 @@ class Permission  extends Plugin
 			{
 				foreach($actions as $action)
 				{
-					$acl->allow('user',$resource,$action);
-					$acl->allow('admin',$resource,$action);	
+					$acl->allow(self::USER,$resource,$action);
+					$acl->allow(self::ADMIN,$resource,$action);	
 				}
 			}
 			//Allow admin
@@ -80,41 +113,12 @@ class Permission  extends Plugin
 			{
 				foreach($actions as $action)
 				{
-					$acl->allow('admin',$resource,$action);						
+					$acl->allow(self::ADMIN,$resource,$action);						
 				}
 			}
 
 			$this->persistent->acl = $acl;
 		}
 		return $this->persistent->acl;
-	}	
-
-	public function beforeExecuteRoute(Event $event, Dispatcher $dispatcher)
-	{
-		//return;
-		$role = $this->session->get('role');
-		if(!$role)
-		{
-			$role = 'guest';
-		}
-
-		$controller = $dispatcher->getControllerName();
-		$action = $dispatcher->getActionName();
-
-		//get the Acl Rule List
-		$acl = $this->_getAcl();
-		
-		$allowed = $acl->isAllowed($role,$controller,$action);
-		
-		if($allowed != Phalcon\Acl::ALLOW)
-		{
-			//do something
-			$dispatcher->forward([
-				'controller' => 'index',
-				'action' => 'index'
-			]);
-			//Stop the dispatcher
-			return false;
-		}
 	}
 }

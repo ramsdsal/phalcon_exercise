@@ -72,7 +72,19 @@ try
 		$session->start();
 		return $session;
 	});
+	//Flash data (Temporary Data)
+	$di->set('flash', function () {
+        $flash = new Phalcon\Flash\Session([
+            'error'   => 'alert alert-danger',
+            'success' => 'alert alert-success',
+            'notice'  => 'alert alert-info',
+            'warning' => 'alert alert-warning',
+        ]);
 
+        return $flash;
+    });    
+
+	//ACL
 	$di->set('dispatcher',function() use ($di){
 		$eventsManager = $di->getShared('eventsManager');
 		
