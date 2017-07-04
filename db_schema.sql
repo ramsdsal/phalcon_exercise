@@ -44,6 +44,7 @@ CREATE TABLE `user` (
   `id` int(11) NOT NULL,
   `email` varchar(50) NOT NULL,
   `password` varchar(128) NOT NULL,
+  `role` enum('guest','user','admin') NOT NULL DEFAULT 'user',
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;

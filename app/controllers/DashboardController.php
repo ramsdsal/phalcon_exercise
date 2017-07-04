@@ -2,12 +2,12 @@
 use \Phalcon\Mvc\View;
 use \Phalcon\Tag;
 
-class AdminController extends BaseController
+class DashboardController extends BaseController
 {	
 
 	public function indexAction()
 	{
-		Tag::setTitle('Admin');
+		Tag::setTitle('Dashboard');
 		die;
 	}	
 }

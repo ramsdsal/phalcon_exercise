@@ -29,7 +29,7 @@
             <li><a href="#contact">Contact</a></li>            
           </ul>
           <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">Signin</a></li>            
+            <li><a href="{{ url('signin/') }}">Signin</a></li>            
           </ul>
         </div>
 	</div>

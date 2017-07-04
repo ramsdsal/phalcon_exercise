@@ -8,6 +8,12 @@ class User extends BaseModel
      * @Column(type="integer", nullable=false)
      */
     public $id;
+    /** 
+     * @Column(type="varchar", nullable=false)
+     */
+    public $email;
+    public $password;
+    public $role;
     
 	//Set the name of tabel that related to this Model
 	public function getSource()
@@ -20,14 +26,5 @@ class User extends BaseModel
 		parent::initialize();
 		$this->hasMany('id','project','user_id');
 	}
-
-	public function beforeValidationOnCreate()
-	{
-		if($this->email == "test@test.com")
-		{
-			die("This email is too common!");
-		}
-	}
-
 } 
 ?>
