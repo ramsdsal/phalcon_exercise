@@ -8,7 +8,6 @@ class AdminController extends BaseController
 	public function indexAction()
 	{
 		Tag::setTitle('Admin');
-		die;
 	}	
 }
 ?>

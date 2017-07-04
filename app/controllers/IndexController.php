@@ -7,7 +7,15 @@ class IndexController extends BaseController
 	public function indexAction()
 	{
 		Tag::setTitle('Home');
+	}
+
+	public function signoutAction()
+	{
+		$this->session->destroy();
+		$this->response->redirect('index/');
 	}	
+
+	//temporary data below
 
 	public function startSessionAction()
 	{		

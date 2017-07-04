@@ -26,6 +26,7 @@ class SigninController extends BaseController
 		{
 			$this->session->set('id',$user->id);
 			$this->session->set('role',$user->role);
+			$this->response->redirect('dashboard/index');
 
 			return;
 		}

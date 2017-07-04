@@ -84,6 +84,12 @@
 **Video 6.3 - Acl P2**      
 	- Access control pt 2    
 
+
+**Video 7.1 - Create A Login Area Tied Into The Acl P1**    
+
+**Video 7.2 - Create A Login Area Tied Into The Acl P2**    
+
+    	   
           
 
 
