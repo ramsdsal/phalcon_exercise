@@ -19,6 +19,12 @@ try
 		'../app/models/',
 		'../app/config/'		
 	]);
+
+	$loader->registerClasses([
+		'Component\User' => '../app/components/User.php',
+		'Component\Helper' => '../app/components/Helper.php'
+	]);
+
 	$loader->register();
 
 	//set the dependency injection
@@ -32,6 +38,14 @@ try
 	//Return API config
 	$di->setShared('api',function() use ($api){
 		return $api;
+	});
+
+	//Return custom components
+	$di->setShared('component',function(){
+		$obj = new StdClass();
+		$obj->helper = new \Component\Helper;
+		$obj->user = new \Component\User;
+		return $obj;
 	});
 	
 	//Path to the views
