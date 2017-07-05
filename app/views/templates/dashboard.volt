@@ -21,7 +21,7 @@
     </div>
 		<div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="{{ url('index/') }}">Dashboard</a></li>
+            <li class="active"><a href="{{ url('dashboard/') }}">Dashboard</a></li>
             <li><a href="{{ url('project/') }}">Projects</a></li>
             <li><a href="{{ url('account/') }}">Account</a></li>            
           </ul>

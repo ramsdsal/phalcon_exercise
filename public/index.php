@@ -1,11 +1,10 @@
 <?php 
-include('../app/config/db.php');
-use \Phalcon\Exception;
+require('../app/config/Config.php');
+
 use \Phalcon\Loader;
 use \Phalcon\Mvc\Application;
 use \Phalcon\DI\FactoryDefault;
 use \Phalcon\Mvc\View;
-use \Phalcon\Db\Adapter\Pdo\Mysql;
 use \Phalcon\Mvc\Model\MetaData\Apc;
 use \Phalcon\Session\Adapter\Files;
 use \Phalcon\Mvc\Router;
@@ -24,6 +23,17 @@ try
 
 	//set the dependency injection
 	$di = new FactoryDefault();
+
+	//Return config
+	$di->setShared('config',function() use ($config){
+		return $config;
+	});	
+
+	//Return API config
+	$di->setShared('api',function() use ($api){
+		return $api;
+	});
+	
 	//Path to the views
 	$di->set('view',function()
 	{
@@ -43,13 +53,9 @@ try
 		return $router;
 	});
 	
-	$di->set('db',function(){
-		$db = new Mysql([
-			'host' => DB_HOST,
-			'username' => DB_USERNAME,
-			'password' => DB_PASSWORD,
-			'dbname' => DB_NAME
-		]);
+	$di->set('db',function() use ($di) {
+		$dbConfig = (array) $di->get('config')->get('db');		
+		$db = new Phalcon\Db\Adapter\Pdo\Mysql($dbConfig);
 		return $db;		
 	});
 
@@ -104,7 +110,7 @@ try
 	echo $app->handle()->getContent();
 
 }
-catch(Exception $e)
+catch(\Phalcon\Exception $e)
 {
 	echo $e->getMessage();
 }
