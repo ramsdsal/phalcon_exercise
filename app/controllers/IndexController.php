@@ -7,6 +7,20 @@ class IndexController extends BaseController
 	public function indexAction()
 	{
 		Tag::setTitle('Home');
+		parent::initialize();
+
+		/*
+			$gateway = \Omnipay\Omnipay::create('Stripe');
+			$gateway->setApiKey('123');
+
+			print_r($gateway);
+			$fb = new \Facebook([
+				'appId' => 123,
+				'secret' => 123
+			]);
+			print_r($fb);
+			die;
+		*/
 	}
 
 	public function signoutAction()

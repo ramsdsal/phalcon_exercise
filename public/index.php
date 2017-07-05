@@ -1,5 +1,6 @@
 <?php 
-require('../app/config/Config.php');
+require '../app/config/Config.php';
+require '../vendor/autoload.php';
 
 use \Phalcon\Loader;
 use \Phalcon\Mvc\Application;

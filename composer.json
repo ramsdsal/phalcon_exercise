@@ -1,0 +1,6 @@
+{
+	"require":{
+		"facebook/php-sdk": "v3.2.3",
+		"omnipay/omnipay": "v2.1.0"
+	}
+}

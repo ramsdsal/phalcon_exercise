@@ -1,0 +1,3 @@
+*.volt.php
+%.php
+composer.lock
