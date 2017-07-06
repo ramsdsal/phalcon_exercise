@@ -88,6 +88,12 @@
 **Video 7.1 - Create A Login Area Tied Into The Acl P1**    
 
 **Video 7.2 - Create A Login Area Tied Into The Acl P2**    
+ **Video 7.3 - Securing Passwords And Csrf  Mark Complete**    
+**Video 7.4 - User Registration  Mark Complete**    
+**Video 8.1 - Config Object  Mark Complete**    
+**Video 8.2 - Custom Components  Mark Complete**    
+**Video 8.3 - Using Composer**        
+De rest van de tutorial gaat verder op de volgende [link](https://github.com/ramsdsal/Phalcon_jumble.git) 
 
     	   
           
